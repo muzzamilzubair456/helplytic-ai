@@ -525,72 +525,7 @@ const Pages = {
             setTimeout(() => location.reload(), 500);
         });
     }
-};// Request Detail Page Controller
-initRequestDetail() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const reqId = parseInt(urlParams.get('id'));
-    const requests = DataStore.get('requests') || [];
-    const request = requests.find(r => r.id === reqId);
-    
-    if (!request) return;
-    
-    // Hero Banner
-    const detailHeader = document.getElementById('detailHeader');
-    if (detailHeader) {
-        detailHeader.innerHTML = `
-            <div class="hero-banner">
-                <div style="display: flex; gap: 8px; margin-bottom: 16px;">
-                    ${UI.createTag(request.category)}
-                    ${UI.createTag(request.urgency, request.urgency === 'High' ? 'danger' : 'warning')}
-                    ${UI.createTag(request.status, request.status === 'Solved' ? 'success' : 'info')}
-                </div>
-                <h1 style="color: white;">${request.title}</h1>
-                <p style="color: var(--text-light); margin-top: 12px;">${request.description}</p>
-            </div>
-        `;
-    }
-    
-    // AI Summary
-    const aiSummary = document.getElementById('aiSummary');
-    if (aiSummary) {
-        aiSummary.innerHTML = `
-            <p style="margin-bottom: 16px; color: var(--text-secondary);">
-                ${request.description} Best helpers are ${request.category.toLowerCase()} mentors comfortable with relevant technologies.
-            </p>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                ${request.tags.map(tag => UI.createTag(tag)).join('')}
-            </div>
-        `;
-    }
-    
-    // Helpers List
-    const helpersList = document.getElementById('helpersList');
-    if (helpersList) {
-        const users = DataStore.get('users') || [];
-        helpersList.innerHTML = users.slice(0, 2).map(user => `
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding: 12px; background: var(--bg-secondary); border-radius: 12px;">
-                ${UI.createAvatar(user.name)}
-                <div style="flex: 1;">
-                    <div style="font-weight: 700;">${user.name}</div>
-                    <div style="font-size: 0.875rem; color: var(--text-secondary);">${user.skills.slice(0, 3).join(', ')}</div>
-                </div>
-                <span class="tag tag-success">Trust ${user.trustScore}%</span>
-            </div>
-        `).join('');
-    }
-    
-    // Button Actions
-    document.getElementById('helpBtn')?.addEventListener('click', () => {
-        UI.showToast('You offered to help!');
-    });
-    
-    document.getElementById('solveBtn')?.addEventListener('click', () => {
-        request.status = 'Solved';
-        DataStore.set('requests', requests);
-        UI.showToast('Request marked as solved!');
-        setTimeout(() => location.reload(), 500);
-    });
-}
+};
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', () => {
