@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - HelpHub AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">H</div>
+                <span>HelpHub AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="leaderboard.html" class="active">Leaderboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding: 40px 0;">
+        <div class="hero-banner" style="margin-bottom: 40px;">
+            <div class="hero-label">Leaderboard</div>
+            <h1 style="color: white;">Recognize the people who keep the community moving.</h1>
+            <p style="color: var(--text-light); margin-top: 12px;">
+                Trust score, contribution count, and badges create visible momentum for reliable helpers.
+            </p>
+        </div>
+
+        <div class="two-col">
+            <div class="card">
+                <div class="card-label">Top Helpers</div>
+                <h2 style="margin-bottom: 24px;">Rankings</h2>
+                <div id="rankingsList"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-label">Badge System</div>
+                <h2 style="margin-bottom: 24px;">Trust and achievement</h2>
+                <div id="badgeList"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

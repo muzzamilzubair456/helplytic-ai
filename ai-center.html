@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Center - HelpHub AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">H</div>
+                <span>HelpHub AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="create-request.html">Create Request</a></li>
+                <li><a href="ai-center.html" class="active">AI Center</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding: 40px 0;">
+        <div class="hero-banner" style="margin-bottom: 40px;">
+            <div class="hero-label">AI Center</div>
+            <h1 style="color: white;">See what the platform intelligence is noticing.</h1>
+            <p style="color: var(--text-light); margin-top: 12px;">
+                AI-like insights summarize demand trends, helper readiness, urgency signals, and request recommendations.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px;">
+            <div class="card">
+                <div class="card-label">Trend Pulse</div>
+                <h3>Web Development</h3>
+                <p>Most common support area based on active community requests.</p>
+            </div>
+            <div class="card">
+                <div class="card-label">Urgency Watch</div>
+                <h3>2</h3>
+                <p>Requests currently flagged high priority by the urgency detector.</p>
+            </div>
+            <div class="card">
+                <div class="card-label">Mentor Pool</div>
+                <h3>2</h3>
+                <p>Trusted helpers with strong response history and contribution signals.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-label">AI Recommendations</div>
+            <h2 style="margin-bottom: 24px;">Requests needing attention</h2>
+            <div id="aiRecommendations"></div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

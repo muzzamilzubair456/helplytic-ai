@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - HelpHub AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">H</div>
+                <span>HelpHub AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="messages.html" class="active">Messages</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding: 40px 0;">
+        <div class="hero-banner" style="margin-bottom: 40px;">
+            <div class="hero-label">Interaction / Messaging</div>
+            <h1 style="color: white;">Keep support moving through direct communication.</h1>
+            <p style="color: var(--text-light); margin-top: 12px;">
+                Basic messaging gives helpers and requesters a clear follow-up path once a match happens.
+            </p>
+        </div>
+
+        <div class="two-col">
+            <div class="card">
+                <div class="card-label">Conversation Stream</div>
+                <h2 style="margin-bottom: 24px;">Recent messages</h2>
+                <div id="messageList" class="message-list" style="padding: 0;"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-label">Send Message</div>
+                <h2 style="margin-bottom: 24px;">Start a conversation</h2>
+                <form id="sendMessageForm">
+                    <div class="form-group">
+                        <label class="form-label">To</label>
+                        <select class="form-select" id="messageTo">
+                            <option>Ayesha Khan</option>
+                            <option>Sara Noor</option>
+                            <option>Hassan Ali</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-textarea" id="messageContent" placeholder="Share support details, ask for files, or suggest next steps."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Send</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

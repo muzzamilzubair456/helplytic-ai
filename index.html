@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpHub AI - Community Support Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">H</div>
+                <span>HelpHub AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="ai-center.html">AI Center</a></li>
+            </ul>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <span style="color: var(--text-secondary); font-size: 0.875rem;">Live community signals</span>
+                <a href="login.html" class="nav-cta">Join the platform</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px;">
+        <div class="two-col" style="margin-bottom: 60px;">
+            <div>
+                <div class="page-label" style="color: var(--primary);">SMIT Grand Coding Night 2026</div>
+                <h1 style="font-size: 3.5rem; margin-bottom: 24px;">Find help faster. Become help that matters.</h1>
+                <p style="font-size: 1.125rem; margin-bottom: 32px; max-width: 500px;">
+                    HelpHub AI is a community-powered support network for students, mentors, creators, and builders. 
+                    Ask for help, offer help, track impact, and let AI surface smarter matches across the platform.
+                </p>
+                <div style="display: flex; gap: 16px; margin-bottom: 40px;">
+                    <a href="explore.html" class="btn btn-primary">Open product demo</a>
+                    <a href="create-request.html" class="btn btn-secondary">Post a request</a>
+                </div>
+                <div id="statsContainer" class="stats-grid"></div>
+            </div>
+            
+            <div class="ai-panel">
+                <div class="hero-label">Live Product Feel</div>
+                <h2 style="color: white; margin-bottom: 16px;">More than a form. More like an ecosystem.</h2>
+                <p style="margin-bottom: 24px;">
+                    A polished multi-page experience inspired by product platforms, with AI summaries, trust scores, 
+                    contribution signals, notifications, and leaderboard momentum built directly in HTML, CSS, JavaScript, and LocalStorage.
+                </p>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; margin-bottom: 16px;">
+                    <h4 style="color: white; margin-bottom: 8px;">AI request intelligence</h4>
+                    <p style="font-size: 0.875rem;">Auto-categorization, urgency detection, tags, rewrite suggestions, and trend snapshots.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; margin-bottom: 16px;">
+                    <h4 style="color: white; margin-bottom: 8px;">Community trust graph</h4>
+                    <p style="font-size: 0.875rem;">Badges, helper rankings, trust score boosts, and visible contribution history.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px;">
+                    <div style="font-size: 2rem; font-weight: 800; color: white;">100%</div>
+                    <p style="font-size: 0.875rem;">Top trust score currently active across the sample mentor network.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 60px;">
+            <div class="page-label">Core Flow</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h2>From struggling alone to solving together</h2>
+                <button class="btn btn-secondary">Try onboarding AI</button>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Ask for help clearly</h3>
+                    <p>Create structured requests with category, urgency, AI suggestions, and tags that attract the right people.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Discover the right people</h3>
+                    <p>Use the explore feed, helper lists, notifications, and messaging to move quickly once a match happens.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Track real contribution</h3>
+                    <p>Trust scores, badges, solved requests, and rankings help the community recognize meaningful support.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 60px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <div>
+                    <div class="page-label">Featured Requests</div>
+                    <h2>Community problems currently in motion</h2>
+                </div>
+                <a href="explore.html" class="btn btn-secondary">View full feed</a>
+            </div>
+            <div id="featuredRequests" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;"></div>
+        </div>
+
+        <footer style="text-align: center; padding: 40px 0; color: var(--text-light); border-top: 1px solid var(--border);">
+            <p>HelpHub AI is built as a premium-feel, multi-page community support product using HTML, CSS, JavaScript, and LocalStorage.</p>
+        </footer>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

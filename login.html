@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HelpHub AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">H</div>
+                <span>HelpHub AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding: 60px 0;">
+        <div class="two-col" style="align-items: center; min-height: 70vh;">
+            <div class="hero-banner" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <div class="hero-label">Community Access</div>
+                <h1 style="color: white; margin-bottom: 24px;">Enter the support network.</h1>
+                <p style="margin-bottom: 32px;">
+                    Choose a demo identity, set your role, and jump into a multi-page product flow designed for asking, 
+                    offering, and tracking help with a premium interface.
+                </p>
+                <ul style="list-style: none; color: var(--text-light);">
+                    <li style="margin-bottom: 12px;">• Role-based entry for Need Help, Can Help, or Both</li>
+                    <li style="margin-bottom: 12px;">• Direct path into dashboard, requests, AI Center, and community feed</li>
+                    <li>• Persistent demo session powered by LocalStorage</li>
+                </ul>
+            </div>
+
+            <div class="card" style="max-width: 480px; width: 100%; margin: 0 auto;">
+                <div class="card-label">Login / Signup</div>
+                <h2 style="margin-bottom: 24px;">Authenticate your community profile</h2>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label">Select demo user</label>
+                        <select class="form-select" id="userSelect">
+                            <option value="1">Ayesha Khan</option>
+                            <option value="2">Sara Noor</option>
+                            <option value="3">Hassan Ali</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Role selection</label>
+                        <select class="form-select">
+                            <option>Both</option>
+                            <option>Need Help</option>
+                            <option>Can Help</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" value="community@helphub.ai" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" value="••••••••" readonly>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-full" style="margin-top: 8px;">
+                        Continue to dashboard
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

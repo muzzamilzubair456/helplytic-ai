@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Request - HelpHub AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">H</div>
+                <span>HelpHub AI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="create-request.html" class="active nav-cta" style="padding: 8px 16px;">Create Request</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding: 40px 0;">
+        <div class="hero-banner" style="margin-bottom: 40px;">
+            <div class="hero-label">Create Request</div>
+            <h1 style="color: white;">Turn a rough problem into a clear help request.</h1>
+            <p style="color: var(--text-light); margin-top: 12px;">
+                Use built-in AI suggestions for category, urgency, tags, and a stronger description rewrite.
+            </p>
+        </div>
+
+        <div class="two-col">
+            <div class="card">
+                <form id="createRequestForm">
+                    <div class="form-group">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-input" id="reqTitle" placeholder="Need review on my JavaScript quiz app before submission">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-textarea" id="reqDesc" placeholder="Explain the challenge, your current progress, deadline, and what kind of help would be useful."></textarea>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label class="form-label">Tags</label>
+                            <input type="text" class="form-input" id="reqTags" placeholder="JavaScript, Debugging, Review">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select class="form-select" id="reqCategory">
+                                <option>Web Development</option>
+                                <option>Design</option>
+                                <option>Career</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Urgency</label>
+                        <select class="form-select" id="reqUrgency">
+                            <option>High</option>
+                            <option selected>Medium</option>
+                            <option>Low</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; gap: 12px;">
+                        <button type="button" class="btn btn-secondary" id="applyAI">Apply AI suggestions</button>
+                        <button type="submit" class="btn btn-primary">Publish request</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="ai-panel">
+                <div class="hero-label">AI Assistant</div>
+                <h2 style="color: white; margin-bottom: 24px;">Smart request guidance</h2>
+                
+                <div style="margin-bottom: 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <span style="color: var(--text-light);">Suggested category</span>
+                        <span style="color: white; font-weight: 600;" id="suggestedCategory">Community</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <span style="color: var(--text-light);">Detected urgency</span>
+                        <span style="color: white; font-weight: 600;" id="detectedUrgency">Low</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <span style="color: var(--text-light);">Suggested tags</span>
+                        <span style="color: white; font-weight: 600;" id="suggestedTags">Add more detail for smarter tags</span>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.1); padding: 16px; border-radius: 12px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span style="color: var(--text-light); font-size: 0.875rem;">Rewrite suggestion</span>
+                    </div>
+                    <p style="color: white; font-size: 0.9rem; line-height: 1.6;" id="rewriteSuggestion">
+                        Start describing the challenge to generate a stronger version.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
