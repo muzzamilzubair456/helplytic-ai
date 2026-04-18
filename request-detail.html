@@ -6,9 +6,325 @@
     <title>Request Detail - HelpHub AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="shortcut icon" href="./favicon.jpg" type="image/x-icon">
+    <style>
+        /* Request Detail Specific Styles */
+        .detail-page {
+            background: linear-gradient(135deg, #f0fdf4 0%, #fffbeb 50%, #fafaf9 100%);
+            min-height: 100vh;
+        }
+
+        /* Hero Banner */
+        .detail-hero {
+            background: #292524;
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .detail-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .detail-hero .hero-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #a8a29e;
+            font-weight: 600;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .detail-hero .hero-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .detail-hero h1 {
+            color: white;
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .detail-hero .hero-desc {
+            color: #a8a29e;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        /* Detail Grid */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* Cards */
+        .detail-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid #e7e5e4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .detail-card-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #0d9488;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .detail-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1c1917;
+            margin-bottom: 16px;
+        }
+
+        /* AI Summary */
+        .ai-summary-text {
+            color: #78716c;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .ai-summary-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .ai-tag {
+            padding: 6px 14px;
+            background: #f5f5f4;
+            color: #44403c;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #e7e5e4;
+        }
+
+        /* Actions */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .btn-help {
+            background: #0d9488;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-help:hover {
+            background: #0f766e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+        }
+
+        .btn-solve {
+            background: white;
+            color: #1c1917;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            border: 1.5px solid #e7e5e4;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-solve:hover {
+            border-color: #0d9488;
+            color: #0d9488;
+            background: #f0fdfa;
+        }
+
+        /* Requester Card */
+        .requester-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .requester-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .requester-details h4 {
+            font-weight: 700;
+            color: #1c1917;
+            margin-bottom: 4px;
+        }
+
+        .requester-details p {
+            color: #a8a29e;
+            font-size: 0.875rem;
+        }
+
+        /* Helpers */
+        .helpers-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1c1917;
+            margin-bottom: 20px;
+        }
+
+        .helper-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: #fafaf9;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            border: 1px solid #f5f5f4;
+            transition: all 0.3s ease;
+        }
+
+        .helper-item:hover {
+            background: #f5f5f4;
+            transform: translateX(4px);
+        }
+
+        .helper-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .helper-avatar.ayesha {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+        }
+
+        .helper-avatar.hassan {
+            background: linear-gradient(135deg, #0d9488, #14b8a6);
+        }
+
+        .helper-info {
+            flex: 1;
+        }
+
+        .helper-info h4 {
+            font-weight: 700;
+            color: #1c1917;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .helper-info p {
+            color: #a8a29e;
+            font-size: 0.8rem;
+        }
+
+        .trust-badge {
+            padding: 6px 12px;
+            background: #ccfbf1;
+            color: #0f766e;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-hero {
+                padding: 32px;
+            }
+
+            .detail-hero h1 {
+                font-size: 2rem;
+            }
+
+            .detail-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .detail-hero {
+                padding: 24px;
+                border-radius: 16px;
+            }
+
+            .detail-hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-help,
+            .btn-solve {
+                width: 100%;
+                text-align: center;
+            }
+
+            .helper-item {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="detail-page">
+
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
@@ -23,46 +339,106 @@
         </div>
     </nav>
 
-    <main class="container" style="padding: 40px 0;">
-        <div id="detailHeader"></div>
+    <main class="container" style="padding: 40px 0 80px;">
 
-        <div class="two-col" style="margin-top: 32px;">
-            <div>
-                <div class="card" style="margin-bottom: 24px;">
-                    <div class="card-label">AI Summary</div>
-                    <div id="aiSummary"></div>
-                </div>
+        <!-- Hero Banner -->
+        <div class="detail-hero">
+            <div class="hero-label">Request Detail</div>
+            <div class="hero-tags">
+                <span class="tag tag-primary">Career</span>
+                <span class="tag tag-success">Low</span>
+                <span class="tag tag-success">Solved</span>
+            </div>
+            <h1>Need mock interview support for internship applications</h1>
+            <p class="hero-desc">Applying to frontend internships and need someone to practice behavioral and technical interview questions with me.</p>
+        </div>
 
-                <div class="card">
-                    <div class="card-label">Actions</div>
-                    <div style="display: flex; gap: 12px; margin-top: 16px;">
-                        <button class="btn btn-primary" id="helpBtn">I can help</button>
-                        <button class="btn btn-secondary" id="solveBtn">Mark as solved</button>
+        <!-- Detail Grid -->
+        <div class="detail-grid">
+
+            <!-- Left Column -->
+            <div class="left-column">
+
+                <!-- AI Summary Card -->
+                <div class="detail-card" style="margin-bottom: 24px;">
+                    <div class="detail-card-label">AI Summary</div>
+                    <p class="ai-summary-text">
+                        Career coaching request focused on confidence-building, behavioral answers, and entry-level frontend interviews. 
+                        Best helpers are mentors with hiring experience or recent internship experience.
+                    </p>
+                    <div class="ai-summary-tags">
+                        <span class="ai-tag">Interview Prep</span>
+                        <span class="ai-tag">Career</span>
+                        <span class="ai-tag">Frontend</span>
                     </div>
                 </div>
+
+                <!-- Actions Card -->
+                <div class="detail-card">
+                    <div class="detail-card-label">Actions</div>
+                    <div class="action-buttons">
+                        <button class="btn-help" onclick="offerHelp()">I can help</button>
+                        <button class="btn-solve" onclick="markSolved()">Mark as solved</button>
+                    </div>
+                </div>
+
             </div>
 
-            <div>
-                <div class="card" style="margin-bottom: 24px;">
-                    <div class="card-label">Requester</div>
-                    <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
-                        <div class="avatar">SN</div>
-                        <div>
-                            <div style="font-weight: 700;">Sara Noor</div>
-                            <div style="font-size: 0.875rem; color: var(--text-secondary);">Karachi • Student</div>
+            <!-- Right Column -->
+            <div class="right-column">
+
+                <!-- Requester Card -->
+                <div class="detail-card" style="margin-bottom: 24px;">
+                    <div class="detail-card-label">Requester</div>
+                    <div class="requester-info">
+                        <div class="requester-avatar">SN</div>
+                        <div class="requester-details">
+                            <h4>Sara Noor</h4>
+                            <p>Karachi • Student</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-label">Helpers</div>
-                    <h3 style="margin-bottom: 16px;">People ready to support</h3>
-                    <div id="helpersList"></div>
+                <!-- Helpers Card -->
+                <div class="detail-card">
+                    <div class="detail-card-label">Helpers</div>
+                    <h3 class="helpers-title">People ready to support</h3>
+
+                    <div class="helper-item">
+                        <div class="helper-avatar ayesha">AK</div>
+                        <div class="helper-info">
+                            <h4>Ayesha Khan</h4>
+                            <p>Figma, UI/UX, HTML/CSS</p>
+                        </div>
+                        <span class="trust-badge">Trust 100%</span>
+                    </div>
+
+                    <div class="helper-item">
+                        <div class="helper-avatar hassan">HA</div>
+                        <div class="helper-info">
+                            <h4>Hassan Ali</h4>
+                            <p>JavaScript, React, Git/GitHub</p>
+                        </div>
+                        <span class="trust-badge">Trust 88%</span>
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </main>
 
-    <script src="js/app.js"></script>
+    <script>
+        function offerHelp() {
+            alert('You offered to help! 🎉');
+        }
+
+        function markSolved() {
+            alert('Request marked as solved! ✅');
+        }
+    </script>
+
 </body>
 </html>
